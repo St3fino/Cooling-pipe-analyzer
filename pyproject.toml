@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hydronet"
+version = "0.1.0"
+description = "1D incompressible hydraulic pressure-drop tool for tree networks"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Hydronet Contributors"}]
+keywords = ["hydraulics", "pressure-drop", "pipe-flow", "fluid-dynamics"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "numpy>=1.25",
+    "pandas>=2.0",
+    "scipy>=1.11",
+    "streamlit>=1.30",
+    "pydantic>=2.5",
+]
+
+[project.optional-dependencies]
+coolprop = ["CoolProp>=6.4"]
+dev = ["pytest>=7.0", "pytest-cov>=4.0"]
+
+[project.urls]
+Repository = "https://github.com/example/hydronet"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v --tb=short"
